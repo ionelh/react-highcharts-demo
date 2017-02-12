@@ -1,0 +1,33 @@
+@import "./mixins.sass"
+@import "./loader.sass"
+
+html, body
+  height: 100%
+  margin: 10px
+  padding: 0
+  font-family: Helvetica, Arial
+  color: #333333
+
+select
+  margin-right: 10px
+
+small
+  font-size: 10px
+  display: block
+  text-align: center
+  margin-bottom: 20px
+
+.clearfix:before
+.clearfix:after,
+  display: table
+  content: " "
+.clearfix:after
+  clear: both
+
+.pull-left
+  float: left
+
+.main-wrapper
+  margin: 0 auto
+  margin-top: 50px
+  width: 70%

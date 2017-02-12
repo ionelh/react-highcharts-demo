@@ -1,0 +1,16 @@
+.loader-circle
+  width: 30px
+  height: 30px
+  margin: 30px auto
+  border-width: 2px
+  border-style: solid
+  border-color: #2a3a4b #2a3a4b #2a3a4b transparent
+  border-radius: 50%
+  @include animation('rotate 1s infinite linear')
+
+@include keyframes(rotate)
+  0%
+    transform: rotate(0deg)
+
+  100%
+    transform: rotate(360deg)
