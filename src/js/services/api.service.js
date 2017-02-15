@@ -30,7 +30,7 @@ function getMockedResponse() {
   return mockedResponse;
 }
 
-function generateParams(year, month) {
+function generateParams(year, month, cityId) {
   month = month < 10 ? `0${month}` : month;
   const lastDayInMonth = new Date(year, month, 0).getDate();
   
@@ -41,7 +41,7 @@ function generateParams(year, month) {
     'units=metric',
     'datatypeid=TAVG',
     'limit=31',
-    'locationid=CITY:RO000012'
+    `locationid=${cityId}`
   ];
 }
 
@@ -93,9 +93,9 @@ const Api = (() => {
   );
   
   return {
-    getTemperature: (month, yearsBack) => {
+    getTemperature: (month, yearsBack, cityId) => {
       const promises = getYearsArr(yearsBack).map((year) => (
-        call(`${BASE_PATH}/data?${generateParams(year, month).join('&')}`)
+        call(`${BASE_PATH}/data?${generateParams(year, month, cityId).join('&')}`)
       ));
       
       return Promise.all(promises);

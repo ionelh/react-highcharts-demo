@@ -4,18 +4,18 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import Select from 'react-select';
 import utils from './../utils/utils';
-import {setMonth} from './../actions/month.actions';
+import {setCity} from './../actions/city.actions';
 
-class Months extends Component {
+class Cities extends Component {
   handleChange(val) {
-    this.props.dispatch(setMonth(parseInt(val)));
+    this.props.dispatch(setCity(val));
   }
   
   render() {
-    const options = utils.months.map((month, index) => (
+    const options = utils.cities.map((city, index) => (
       {
-        value: index + 1,
-        label: month
+        value: city.id,
+        label: city.name
       }
     ));
     
@@ -23,9 +23,8 @@ class Months extends Component {
       <div className="select-control">
         <Select
           clearable={false}
-          searchable={false}
-          name="months"
-          value={this.props.month}
+          name="cities"
+          value={this.props.cityId}
           options={options}
           onChange={this.handleChange.bind(this)}
         />
@@ -34,11 +33,11 @@ class Months extends Component {
   }
 }
 
-Months.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  month: PropTypes.number.isRequired
+Cities.propTypes = {
+  cityId: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 export default connect((state) => ({
-  month: state.month
-}))(Months);
+  cityId: state.cityId
+}))(Cities);

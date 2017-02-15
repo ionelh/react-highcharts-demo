@@ -17,7 +17,7 @@ const getTemperatues = () => (
 const retrieve = () => (
   (dispatch, getState) => {
     const state = getState();
-    Api.getTemperature(state.month, state.yearsBack)
+    Api.getTemperature(state.month, state.yearsBack, state.cityId)
       .then(response => {
         dispatch(receiveSuccess(response));
       })

@@ -11,7 +11,9 @@ class SubmitBtn extends Component {
   
   render() {
     return (
-      <button onClick={this.handleClick.bind(this)}>Go!</button>
+      <div className="select-control">
+        <button onClick={this.handleClick.bind(this)}>Go!</button>
+      </div>
     );
   }
 }
